@@ -1,0 +1,23 @@
+# print statements for a room spawn
+roomSpawnLine:
+- "You walk into the next room. Its {selectedlighting} and feels quite {selectedSize}.\n"
+- "You make your way to the next room, its {selectedSize} in size and {selectedlighting}.\n"
+
+
+# Lighting levels from darkest to brightest
+# the darker the room, the higher the chance of escape, but lower the atk
+lightLevels:
+  - pitch black
+  - almost dark
+  - dimly lit
+  - well lit
+  - sunlit
+
+# Room size from smallest to largest
+# the smaller the room, the lower the chance of escape, the higher the atk
+sizeLevels:
+  - cramped
+  - small
+  - average
+  - spacious
+  - massive

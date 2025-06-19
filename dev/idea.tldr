@@ -36,9 +36,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 2405.3287777947135,
-			"y": 98.9498213348237,
-			"lastActivityTimestamp": 1750248056763,
+			"x": 2000.0334814083744,
+			"y": -1110.9792323732463,
+			"lastActivityTimestamp": 1750249980783,
 			"meta": {}
 		},
 		{
@@ -216,20 +216,227 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -24.25543192941518,
-			"y": 622.4849193043065,
-			"z": 0.5904900000000001,
+			"x": -54.94737784625204,
+			"y": 2011.0413225643952,
+			"z": 0.4621903361263141,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
 		},
 		{
+			"x": 315.15424631511587,
+			"y": -1196.191920187441,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:2n3WE_1e9alGmD9wwXUyJ",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "l",
+				"w": 1726.171875,
+				"font": "sans",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tWhenever the player levels up, they may pick an attribute to level up. "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tfrom levels 1 to 5, they can increase atk/hp by 1 each level."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tfrom levels 6 to 25, they can increase atk 10 times. hp 10 times and luck 5 times. luck upgrades"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t\t\t\t\t in these levels are at max 2%"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tAt level 25, they recieve a mega upgrade which increases all bag items odds by 10%"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tfrom 26 to 50, they can increase atk 10 times. hp 10 times and luck 5 times. luck upgrades"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t\t\t\t\t in these levels are at max 3%"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tat level 50, they recieve a mega upgrade which increases all bag items odds bty 10%"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tfrom level 51 to 60, they can upgrade health/atk by 0.5 each level any number of times and "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\tluck by 5% 5 times. "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tAt level 60, they recieve their last mega upgrade."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tHere they face the final boss,"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\tphase 1: which has the exact same stats as the player. it locks 75% of the player's upgraded luck"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\twhich 25% of is given back whenver the boss loses 25% health."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\tphase 2: the player is at their full potential, this boss has fixed health and atk.  "
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a47vT",
+			"typeName": "shape"
+		},
+		{
 			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:HZKXYD11bag99GRm7X6D_"
+				"shape:K9ysmPWMzkIDUIAgTRQiD"
 			],
-			"hoveredShapeId": null,
+			"hoveredShapeId": "shape:K9ysmPWMzkIDUIAgTRQiD",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -237,6 +444,232 @@
 			"id": "instance_page_state:page:page",
 			"pageId": "page:page",
 			"typeName": "instance_page_state"
+		},
+		{
+			"x": 2359.1928731673424,
+			"y": -706.3840139459749,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:K9ysmPWMzkIDUIAgTRQiD",
+			"type": "arrow",
+			"props": {
+				"kind": "arc",
+				"elbowMidPoint": 0.5,
+				"dash": "draw",
+				"size": "l",
+				"fill": "none",
+				"color": "black",
+				"labelColor": "black",
+				"bend": 0,
+				"start": {
+					"x": 0,
+					"y": 0
+				},
+				"end": {
+					"x": -313.7235650906648,
+					"y": -60.581102224404276
+				},
+				"arrowheadStart": "none",
+				"arrowheadEnd": "arrow",
+				"text": "",
+				"labelPosition": 0.5,
+				"font": "sans",
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "a52zg",
+			"typeName": "shape"
+		},
+		{
+			"x": 2363.0216513585574,
+			"y": -708.1748530566406,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:C7tQso7r1_SGgQwP0CSxN",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "l",
+				"w": 1672.3125,
+				"font": "sans",
+				"textAlign": "start",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Player progression: Starts with 10HP and 3ATK. Each enemy drops some amount of exp"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "depending on some formula. "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "At level 5, the player unlocks a new Luck attribute."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "The player is also going to have a special upgrade called the \"Mega Upgrade\" which increases "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "the effects of all inventory items."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Inventory items include:"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tHealth Kits: heals upto x% of max health when used. Max stored: 3"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tVanish Pearl: Used to run from a room when dangerous foes are present, may fail to escape which"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t\t\t\t\t forces combat, based on some%. Max stored: 5"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\tMoon Shade Elixir: Boosts atk upto certain% of max attack for the current combat. max stored: 1"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Note: Mega Upgrades and Luck% are both responsible for making inventory items stronger."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "\t"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a30zq",
+			"typeName": "shape"
 		},
 		{
 			"x": 1605.9926332368032,
@@ -294,12 +727,12 @@
 			"opacityForNextShape": 1,
 			"stylesForNextShape": {
 				"tldraw:font": "sans",
-				"tldraw:size": "xl"
+				"tldraw:size": "l"
 			},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "default",
+				"type": "cross",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -310,7 +743,7 @@
 				"x": 0,
 				"y": 0,
 				"w": 2319,
-				"h": 1506
+				"h": 1484
 			},
 			"insets": [
 				false,
@@ -352,6 +785,24 @@
 				},
 				"snap": "none",
 				"terminal": "start"
+			},
+			"typeName": "binding"
+		},
+		{
+			"meta": {},
+			"id": "binding:_yfayodZxNT2gLTKSwfM0",
+			"type": "arrow",
+			"fromId": "shape:K9ysmPWMzkIDUIAgTRQiD",
+			"toId": "shape:2n3WE_1e9alGmD9wwXUyJ",
+			"props": {
+				"isPrecise": true,
+				"isExact": false,
+				"normalizedAnchor": {
+					"x": 0.9760784887618786,
+					"y": 0.11690486645462927
+				},
+				"snap": "none",
+				"terminal": "end"
 			},
 			"typeName": "binding"
 		}
