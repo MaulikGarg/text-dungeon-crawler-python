@@ -5,8 +5,8 @@ import random
 import yaml
 
 # get template file path
-srcDir = Path(__file__).resolve().parent
-templatePath = srcDir.parent / "data" / "room_template.yaml"
+projectdir = Path(__file__).resolve().parent.parent
+templatePath = projectdir / "data" / "room_template.yaml"
 
 # load the template room file
 with open(templatePath, "r") as templateFile:

@@ -1,0 +1,21 @@
+tiers:
+  1:
+    atk: 1
+    hp: 1
+    luck: 0
+  2:
+    atk: 1
+    hp: 1
+    luck: 1.5
+  3:
+    atk: 1
+    hp: 1
+    luck: 2.0
+  4:
+    atk: 0.8
+    hp: 0.8
+    luck: 3.0
+  5:
+    atk: 0.5
+    hp: 0.5
+    luck: 2.4

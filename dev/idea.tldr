@@ -36,9 +36,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 2000.0334814083744,
-			"y": -1110.9792323732463,
-			"lastActivityTimestamp": 1750249980783,
+			"x": 334.8853592034254,
+			"y": -756.1357769740075,
+			"lastActivityTimestamp": 1750330190162,
 			"meta": {}
 		},
 		{
@@ -216,16 +216,16 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -54.94737784625204,
-			"y": 2011.0413225643952,
-			"z": 0.4621903361263141,
+			"x": 1915.7009279073097,
+			"y": 3434.0485742956416,
+			"z": 0.42122357424341483,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
 		},
 		{
-			"x": 315.15424631511587,
-			"y": -1196.191920187441,
+			"x": -883.4530109761845,
+			"y": -2810.5270526096715,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -235,7 +235,7 @@
 			"props": {
 				"color": "black",
 				"size": "l",
-				"w": 1726.171875,
+				"w": 1339.375,
 				"font": "sans",
 				"textAlign": "start",
 				"autoSize": true,
@@ -244,14 +244,15 @@
 					"type": "doc",
 					"content": [
 						{
-							"type": "paragraph",
+							"type": "heading",
 							"attrs": {
-								"dir": "auto"
+								"dir": "auto",
+								"level": 1
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\tWhenever the player levels up, they may pick an attribute to level up. "
+									"text": "Leveling System"
 								}
 							]
 						},
@@ -259,11 +260,320 @@
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
+							}
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\tfrom levels 1 to 5, they can increase atk/hp by 1 each level."
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Levels 1-5: Tutorial Phase - Tier 1"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Available Upgrades per Level:"
+												},
+												{
+													"type": "text",
+													"text": " ATK +1 OR HP +1"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Total Possible:"
+												},
+												{
+													"type": "text",
+													"text": " 5 ATK, 5 HP"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Player Choice:"
+												},
+												{
+													"type": "text",
+													"text": " Must pick one attribute each level"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Levels 6-25: Early Game (20 levels) - Tier 2"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Available Upgrade Points:"
+												},
+												{
+													"type": "text",
+													"text": " 30 total points to spend"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Upgrade Options:"
+												}
+											]
+										},
+										{
+											"type": "bulletList",
+											"content": [
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "ATK: +1 per point (max 15 upgrades)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "HP: +1 per point (max 15 upgrades)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "Luck: +1.5% per point (max 8 upgrades = 12% luck)"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Excess Points:"
+												},
+												{
+													"type": "text",
+													"text": " 30 available - 23 max spendable = 7 extra points for flexibility"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Level 25 Milestone"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Mega Upgrade:"
+												},
+												{
+													"type": "text",
+													"text": " All bag item drop rates +10%"
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -271,11 +581,164 @@
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
+							}
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							}
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\tfrom levels 6 to 25, they can increase atk 10 times. hp 10 times and luck 5 times. luck upgrades"
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Levels 26-50: Mid Game (25 levels) - Tier 3"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Available Upgrade Points:"
+												},
+												{
+													"type": "text",
+													"text": " 35 total points to spend"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Upgrade Options:"
+												}
+											]
+										},
+										{
+											"type": "bulletList",
+											"content": [
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "ATK: +1 per point (max 18 upgrades)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "HP: +1 per point (max 18 upgrades)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "Luck: +2% per point (max 12 upgrades = 24% luck)"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Excess Points:"
+												},
+												{
+													"type": "text",
+													"text": " 35 available - 30 max spendable = 5 extra points for flexibility"
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -283,11 +746,54 @@
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
+							}
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t\t\t\t\t in these levels are at max 2%"
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Level 50 Milestone"
+								}
+							]
+						},
+						{
+							"type": "bulletList",
+							"content": [
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Mega Upgrade:"
+												},
+												{
+													"type": "text",
+													"text": " All bag item drop rates +10% (total +20%)"
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -295,133 +801,355 @@
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
+							}
+						},
+						{
+							"type": "heading",
+							"attrs": {
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\tAt level 25, they recieve a mega upgrade which increases all bag items odds by 10%"
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Levels 51-55: Late Game Preparation (5 levels)"
 								}
 							]
 						},
 						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
+							"type": "bulletList",
 							"content": [
 								{
-									"type": "text",
-									"text": "\tfrom 26 to 50, they can increase atk 10 times. hp 10 times and luck 5 times. luck upgrades"
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Available Upgrade Points:"
+												},
+												{
+													"type": "text",
+													"text": " 8 total points to spend"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Upgrade Options:"
+												}
+											]
+										},
+										{
+											"type": "bulletList",
+											"content": [
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "ATK: +0.8 per point (unlimited upgrades within points)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "HP: +0.8 per point (unlimited upgrades within points)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "Luck: +3% per point (max 4 upgrades = 12% luck)"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Excess Points:"
+												},
+												{
+													"type": "text",
+													"text": " Minimal excess for final optimization"
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											}
+										}
+									]
 								}
 							]
 						},
 						{
-							"type": "paragraph",
+							"type": "heading",
 							"attrs": {
-								"dir": "auto"
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\t\t\t\t\t\t in these levels are at max 3%"
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Levels 56-60: Endgame (5 levels)"
 								}
 							]
 						},
 						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
+							"type": "bulletList",
 							"content": [
 								{
-									"type": "text",
-									"text": "\tat level 50, they recieve a mega upgrade which increases all bag items odds bty 10%"
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Available Upgrade Points:"
+												},
+												{
+													"type": "text",
+													"text": " 7 total points to spend"
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Upgrade Options:"
+												}
+											]
+										},
+										{
+											"type": "bulletList",
+											"content": [
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "ATK: +0.5 per point (unlimited upgrades within points)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "HP: +0.5 per point (unlimited upgrades within points)"
+																}
+															]
+														}
+													]
+												},
+												{
+													"type": "listItem",
+													"content": [
+														{
+															"type": "paragraph",
+															"attrs": {
+																"dir": "auto"
+															},
+															"content": [
+																{
+																	"type": "text",
+																	"text": "Luck: +2.4% per point (max 5 upgrades = 12% luck)"
+																}
+															]
+														}
+													]
+												}
+											]
+										},
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											}
+										}
+									]
 								}
 							]
 						},
 						{
-							"type": "paragraph",
+							"type": "heading",
 							"attrs": {
-								"dir": "auto"
+								"dir": "auto",
+								"level": 3
 							},
 							"content": [
 								{
 									"type": "text",
-									"text": "\tfrom level 51 to 60, they can upgrade health/atk by 0.5 each level any number of times and "
+									"marks": [
+										{
+											"type": "bold"
+										}
+									],
+									"text": "Level 60 Milestone"
 								}
 							]
 						},
 						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
+							"type": "bulletList",
 							"content": [
 								{
-									"type": "text",
-									"text": "\t\tluck by 5% 5 times. "
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "bold"
+														}
+													],
+													"text": "Final Mega Upgrade:"
+												},
+												{
+													"type": "text",
+													"text": " All bag item drop rates +10% (total +30%)"
+												}
+											]
+										}
+									]
 								}
 							]
 						},
 						{
-							"type": "paragraph",
+							"type": "heading",
 							"attrs": {
-								"dir": "auto"
-							},
-							"content": [
-								{
-									"type": "text",
-									"text": "\tAt level 60, they recieve their last mega upgrade."
-								}
-							]
-						},
-						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
-							"content": [
-								{
-									"type": "text",
-									"text": "\tHere they face the final boss,"
-								}
-							]
-						},
-						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
-							"content": [
-								{
-									"type": "text",
-									"text": "\t\tphase 1: which has the exact same stats as the player. it locks 75% of the player's upgraded luck"
-								}
-							]
-						},
-						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
-							"content": [
-								{
-									"type": "text",
-									"text": "\t\twhich 25% of is given back whenver the boss loses 25% health."
-								}
-							]
-						},
-						{
-							"type": "paragraph",
-							"attrs": {
-								"dir": "auto"
-							},
-							"content": [
-								{
-									"type": "text",
-									"text": "\t\tphase 2: the player is at their full potential, this boss has fixed health and atk.  "
-								}
-							]
+								"dir": "auto",
+								"level": 2
+							}
 						}
 					]
 				}
@@ -431,12 +1159,12 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": null,
+			"editingShapeId": "shape:2n3WE_1e9alGmD9wwXUyJ",
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:K9ysmPWMzkIDUIAgTRQiD"
+				"shape:2n3WE_1e9alGmD9wwXUyJ"
 			],
-			"hoveredShapeId": "shape:K9ysmPWMzkIDUIAgTRQiD",
+			"hoveredShapeId": "shape:2n3WE_1e9alGmD9wwXUyJ",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -725,14 +1453,11 @@
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {
-				"tldraw:font": "sans",
-				"tldraw:size": "l"
-			},
+			"stylesForNextShape": {},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "cross",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -742,7 +1467,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 2319,
+				"w": 2512,
 				"h": 1484
 			},
 			"insets": [
