@@ -1,0 +1,9 @@
+multipliers:
+  common: 1.25
+  rare: 1.5
+  elite: 1.75
+
+enemyOdds:  
+  common: 65.0
+  rare: 30.0
+  elite: 5.0
