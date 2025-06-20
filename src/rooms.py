@@ -12,19 +12,30 @@ templatePath = projectdir / "data" / "room_template.yaml"
 with open(templatePath, "r") as templateFile:
   templates = yaml.safe_load(templateFile)
 
-def generateRoom():
-  light = random.choice(templates["lightLevels"])
-  size =  random.choice(templates["sizeLevels"])
+lightLevels = templates["lightLevels"]
+sizeLevels =  templates["sizeLevels"]
+
+def generateRoom(light = None , size = None):
+  # if light/size is not given, generate.
+  if light is None:
+    light = random.randint(0, len(lightLevels) - 1)
+  if size is None:  
+    size = random.randint(0, len(sizeLevels) - 1)
+
+  if not (0 <= light < len(lightLevels)) or not (0 <= size < len(sizeLevels)):
+    raise ValueError(f"Unexpected light/size values in generateRoom(): {light}, {size}")
+
   return light, size
 
-def printRoom(light = None , size = None):
-  roomLine = random.choice(templates["roomSpawnLine"])
+def printRoom(light, size):
 
-  # if the lighting or size is not provided for the room,
-  # generate it randomly.
-  if not (light) or not (size):
-    light, size = generateRoom()
-  
+  roomLine = random.choice(templates["roomSpawnLine"])
+  lightstr = lightLevels[light]
+  sizestr = sizeLevels[size]
+
+  if not (0 <= light < len(lightLevels)) or not (0 <= size < len(sizeLevels)):
+    raise ValueError(f"Unexpected light/size values in printRoom(): {light}, {size}")
+
   # format the line to be printed
-  roomLineToPrint = roomLine.format(selectedlighting = light, selectedSize = size)
+  roomLineToPrint = roomLine.format(selectedlighting = lightstr, selectedSize = sizestr)
   print(roomLineToPrint)

@@ -63,26 +63,36 @@ class Player:
 
 
   def printStatus(self):  
-    print("Current Player Status\n--------\n")
-    print(f"Level: {self.level} \n")
-    print(f"HP: {self.currentHP} / {self.maxHP} \n")
-    print(f"ATK: {self.atk} \n")
+    print("Current Player Status\n--------")
+    print(f"Level: {self.level}")
+    print(f"HP: {self.currentHP} / {self.maxHP}")
+    print(f"ATK: {self.atk}")
     if(self.unlockedLuck):
-      print(f"LUCK: {self.luck}%\n")
+      print(f"LUCK: {self.luck}%")
 
 
 
   def getUpgrade(self, HPamount, ATKamount, LUCKamount):  
-    print("Remaining Possible Upgrades, Enter the respective number to upgrade the stat\n")  
-    print(f"1. Health: {self.possibleUpgrades['hp']} remaining, {self.currentHP} -> {self.maxHP+HPamount}\n")
-    print(f"2. Attack: {self.possibleUpgrades['atk']} remaining, {self.atk} -> {self.atk+ATKamount} \n")
-    if(self.unlockedLuck):
-      print(f"3. Luck: {self.possibleUpgrades['luck']} remaining, {self.luck}% -> {self.luck+LUCKamount}% \n")
+    print("\nRemaining Possible Upgrades, Enter the respective number to upgrade the stat\n")  
+
+    possibleChoices = []
+
+    if self.possibleUpgrades["hp"]:
+      print(f"1. Health: {self.possibleUpgrades['hp']} remaining, {self.currentHP} -> {self.maxHP+HPamount}")
+      possibleChoices.append(1)
+
+    if self.possibleUpgrades["atk"]:  
+      print(f"2. Attack: {self.possibleUpgrades['atk']} remaining, {self.atk} -> {self.atk+ATKamount}")
+      possibleChoices.append(2)
+
+    if self.unlockedLuck and self.possibleUpgrades["luck"]:
+      print(f"3. Luck: {self.possibleUpgrades['luck']} remaining, {self.luck}% -> {self.luck+LUCKamount}%")
+      possibleChoices.append(3)
 
     while True:
       try:
-        value = int(input("> "))  
-        if (value > 0 and value < 4) and (value == 1 or value == 2 or self.unlockedLuck):
+        value = int(input("\n> "))  
+        if value in possibleChoices:
           return value    
         print("Please enter a valid upgrade index.\n")
       except ValueError:
@@ -97,15 +107,10 @@ class Player:
     ATKamount = tierUpgrades[self.playerTier]["values"]["atk"]
     LUCKamount = tierUpgrades[self.playerTier]["values"]["luck"]
 
-    # first we check if the desired upgrade is available
-    while True:
-      self.printStatus()
-      toUpgrade = self.getUpgrade(HPamount, ATKamount, LUCKamount)
-      key = self.statOrder[toUpgrade - 1]
-      if (self.possibleUpgrades[key]):
-        self.possibleUpgrades[key] -= 1
-        break
-      print("You cannot upgrade that stat anymore!\n")
+    self.printStatus()
+    toUpgrade = self.getUpgrade(HPamount, ATKamount, LUCKamount)
+    key = self.statOrder[toUpgrade - 1]
+    self.possibleUpgrades[key] -= 1
 
     # here we upgrade the desired stat    
     match toUpgrade:
