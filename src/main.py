@@ -2,18 +2,17 @@
 
 import rooms
 from player import Player
+from enemy import Enemy
 
 print("Welcome to the game.")
-print("Type anything to level up, or just press Enter to quit.\n")
 
 pl = Player()
+en = Enemy()
 
 while True:
-    cmd = input("> ").strip()
-    if cmd == "":
-        print("Exiting...")
-        break
-    pl.levelUp()
-
-  
-
+    resp = int(input("1 to level up, 2 to spawn enemy. "))
+    if resp == 1:
+        pl.levelUp()
+    else:    
+        en.generate(pl, 'common')
+        en.printEnemy()
