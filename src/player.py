@@ -29,17 +29,35 @@ class Player:
 
 
   def levelUp(self):
-    self.currentHP = self.maxHP
+
+    def megaupgrade(): 
+      print(f"You've reached a milestone! \n Increased Luck from {self.luck}% to {self.luck+10}%\n")  
+      self.luck+=10
+
     self.level += 1
-    self.exp = 0
-    if self.level > 55:
-        self.playerTier = 5
-    elif self.level > 50:
-        self.playerTier = 4
-    elif self.level > 25:
-        self.playerTier = 3
-    elif self.level > 5:
+
+    # check for tier upgrade and give mega upgrade.
+    if self.level == 6:
         self.playerTier = 2
+        self.unlockedLuck = True
+        self.luck = 5
+        print(f"Attribute Luck has been unlocked! Current Luck: {self.luck}%\n")
+    elif self.level == 26:
+        self.playerTier = 3
+        megaupgrade()
+    elif self.level == 51:
+        self.playerTier = 4
+        megaupgrade()
+    elif self.level == 56:
+        self.playerTier = 5
+        megaupgrade()
+
+    # reset the upgrade limits
+    if self.level in (6, 26, 51, 56):    
+       self.possibleUpgrades = tierUpgrades[self.playerTier]["limits"].copy()
+
+    self.currentHP = self.maxHP
+    self.exp = 0
     self.increaseStats()
 
 
@@ -49,15 +67,17 @@ class Player:
     print(f"Level: {self.level} \n")
     print(f"HP: {self.currentHP} / {self.maxHP} \n")
     print(f"ATK: {self.atk} \n")
-
-
-
-  def getUpgrade(self):  
-    print("Remaining Possible Upgrades, Enter the respective number to upgrade the stat\n")  
-    print(f"1. Health: {self.possibleUpgrades['hp']} \n")
-    print(f"2. Attack: {self.possibleUpgrades['atk']} \n")
     if(self.unlockedLuck):
-      print(f"3. Luck: {self.possibleUpgrades['luck']} \n")
+      print(f"LUCK: {self.luck}%\n")
+
+
+
+  def getUpgrade(self, HPamount, ATKamount, LUCKamount):  
+    print("Remaining Possible Upgrades, Enter the respective number to upgrade the stat\n")  
+    print(f"1. Health: {self.possibleUpgrades['hp']} remaining, {self.currentHP} -> {self.maxHP+HPamount}\n")
+    print(f"2. Attack: {self.possibleUpgrades['atk']} remaining, {self.atk} -> {self.atk+ATKamount} \n")
+    if(self.unlockedLuck):
+      print(f"3. Luck: {self.possibleUpgrades['luck']} remaining, {self.luck}% -> {self.luck+LUCKamount}% \n")
 
     while True:
       try:
@@ -69,12 +89,18 @@ class Player:
         print("Please enter a number.")
 
 
+
+
   def increaseStats(self):    
+
+    HPamount = tierUpgrades[self.playerTier]["values"]["hp"]
+    ATKamount = tierUpgrades[self.playerTier]["values"]["atk"]
+    LUCKamount = tierUpgrades[self.playerTier]["values"]["luck"]
 
     # first we check if the desired upgrade is available
     while True:
       self.printStatus()
-      toUpgrade = self.getUpgrade()
+      toUpgrade = self.getUpgrade(HPamount, ATKamount, LUCKamount)
       key = self.statOrder[toUpgrade - 1]
       if (self.possibleUpgrades[key]):
         self.possibleUpgrades[key] -= 1
@@ -84,26 +110,15 @@ class Player:
     # here we upgrade the desired stat    
     match toUpgrade:
       case 1: # hp case
-        self.upgradeHP()
+        print(f"Upgraded HP from {self.maxHP} to {self.maxHP+HPamount}\n")
+        self.maxHP += HPamount
       case 2: # atk case  
-        self.upgradeATK()
+        print(f"Upgraded ATK from {self.atk} to {self.atk+ATKamount}\n")
+        self.atk += ATKamount
       case 3: # luck case  
-        self.upgradeLUCK()
+        print(f"Upgraded LUCK from {self.luck}% to {self.luck+LUCKamount}%\n")
+        self.luck += LUCKamount
       case _:  
         raise ValueError(f"in increaseStats() got value {toUpgrade}.")
-        
-
-  def upgradeHP(self):      
-    amount = tierUpgrades[self.playerTier]["hp"]
-    print(f"Upgraded HP from {self.maxHP} to {self.maxHP+amount}\n")
-    self.maxHP += amount
+           
     
-  def upgradeATK(self):      
-    amount = tierUpgrades[self.playerTier]["atk"]
-    print(f"Upgraded ATK from {self.atk} to {self.atk+amount}\n")
-    self.atk += amount
-
-  def upgradeLUCK(self):      
-    amount = tierUpgrades[self.playerTier]["luck"]
-    print(f"Upgraded LUCK from {self.luck} to {self.luck+amount}\n")
-    self.luck += amount

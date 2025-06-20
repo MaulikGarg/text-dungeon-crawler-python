@@ -1,21 +1,50 @@
 tiers:
   1:
-    atk: 1
-    hp: 1
-    luck: 0
+    values:
+      atk: 2
+      hp: 4
+      luck: 0
+    limits:  
+      atk: 5
+      hp: 5
+      luck: 0
+
   2:
-    atk: 1
-    hp: 1
-    luck: 1.5
+    values:
+      atk: 3
+      hp: 6
+      luck: 3
+    limits:  
+      atk: 15
+      hp: 15
+      luck: 8
+
   3:
-    atk: 1
-    hp: 1
-    luck: 2.0
+    values:
+      atk: 4
+      hp: 8
+      luck: 4
+    limits:  
+      atk: 18
+      hp: 18
+      luck: 12
+
   4:
-    atk: 0.8
-    hp: 0.8
-    luck: 3.0
+    values:
+      atk: 3
+      hp: 6
+      luck: 6
+    limits:  
+      atk: 999
+      hp: 999
+      luck: 999
+
   5:
-    atk: 0.5
-    hp: 0.5
-    luck: 2.4
+    values:
+      atk: 2
+      hp: 4
+      luck: 4.8
+    limits:  
+      atk: 999
+      hp: 999
+      luck: 999
