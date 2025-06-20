@@ -79,6 +79,7 @@ class Player:
       if (self.possibleUpgrades[key]):
         self.possibleUpgrades[key] -= 1
         break
+      print("You cannot upgrade that stat anymore!\n")
 
     # here we upgrade the desired stat    
     match toUpgrade:
@@ -99,10 +100,10 @@ class Player:
     
   def upgradeATK(self):      
     amount = tierUpgrades[self.playerTier]["atk"]
-    print(f"Upgraded HP from {self.atk} to {self.atk+amount}\n")
+    print(f"Upgraded ATK from {self.atk} to {self.atk+amount}\n")
     self.atk += amount
 
   def upgradeLUCK(self):      
     amount = tierUpgrades[self.playerTier]["luck"]
-    print(f"Upgraded HP from {self.luck} to {self.luck+amount}\n")
+    print(f"Upgraded LUCK from {self.luck} to {self.luck+amount}\n")
     self.luck += amount
