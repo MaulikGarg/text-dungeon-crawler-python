@@ -1,4 +1,5 @@
 tiers:
+  # levels 1-5
   1:
     values:
       atk: 2
@@ -9,6 +10,7 @@ tiers:
       hp: 5
       luck: 0
 
+  # levels 6-25
   2:
     values:
       atk: 3
@@ -19,6 +21,7 @@ tiers:
       hp: 15
       luck: 8
 
+  # levels 26-50
   3:
     values:
       atk: 4
@@ -29,6 +32,7 @@ tiers:
       hp: 18
       luck: 12
 
+  # levels 51-55
   4:
     values:
       atk: 3
@@ -39,6 +43,7 @@ tiers:
       hp: 999
       luck: 999
 
+  # levels 56-60
   5:
     values:
       atk: 2

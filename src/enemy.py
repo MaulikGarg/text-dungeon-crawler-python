@@ -18,15 +18,32 @@ class Enemy:
     self.type = None # common, rare, elite, boss
     self.level = None
     self.sight = None # the higher this is, the less odds to sneak escape
-    self.atk = None 
+    self.atk = None
     self.currHP = None
     self.hp = None
     self.res = None # resistance to crit hits, opposite for luck in Players
 
 
+  def generateType(self):
+    commonOdds = int(data["enemyOdds"]["common"])
+    rareOdds = int(data["enemyOdds"]["rare"])
+    eliteOdds = int(data["enemyOdds"]["elite"])
+    total = commonOdds+rareOdds+eliteOdds
+    if total != 100:
+      raise ValueError(f"In generate(), enemy odds total isn't 100%, gotten {total}% instead")
 
-  def generate(self, player: Player, type):
-    self.type = type
+    typerandom = random.randint(1, 100)
+    if typerandom <= commonOdds:
+      self.type = 'common'
+    elif typerandom <= (commonOdds + rareOdds):
+      self.type = 'rare'
+    else:
+        self.type = 'elite'
+
+  def generate(self, player: Player):
+    
+    if self.type is None: self.generateType()
+
     enemyStatPoints = (player.level+3) * data["multipliers"][self.type]
     
     # if the player is lucky, deduct 10% enemyStatePoints
@@ -35,18 +52,23 @@ class Enemy:
       enemyStatPoints -= enemyStatPoints*0.1
 
     self.level = int(enemyStatPoints)  
- 
-    self.hp, self.atk, self.res = self.generateStats(enemyStatPoints)
+    hp_boost, atk_boost, res_boost = self.generateStats(enemyStatPoints)
+    self.hp = 2 + hp_boost
+    self.atk = 1 + atk_boost
+    self.res = 1 + res_boost
 
     self.currHP = self.hp
 
+    base = 2 + player.level*0.5
+    jitter = random.uniform(-3, 5)
+    self.sight = min(100, max(5, int(base + jitter)))
 
   def generateStats(self, enemyStatPoints):  
 
     # first the enemies get a bare minimum to ensure flow
-    # This spends 28% of the available points
-    hp = max(3, enemyStatPoints * 0.15)
-    atk = max(1, enemyStatPoints * 0.08)
+    # This spends 55% of the available points
+    hp = max(3, enemyStatPoints * 0.30)
+    atk = max(1, enemyStatPoints * 0.20)
     res = max(0, enemyStatPoints * 0.05)
 
     randomlyAllocatedPoints = enemyStatPoints - (hp+atk+res)
@@ -54,10 +76,12 @@ class Enemy:
     w1, w2, w3 = random.random(), random.random(), random.random()
     total = w1 + w2 + w3
 
-    hp  += (w1 / total) * randomlyAllocatedPoints
-    atk += (w2 / total) * randomlyAllocatedPoints
+    hp  += (w1 / total) * randomlyAllocatedPoints * 1.1
+    atk += (w2 / total) * randomlyAllocatedPoints * 1.0
     res += ((w3 / total) * randomlyAllocatedPoints) * 1.5
 
+    # max res shouldnt be any more than 40
+    res = min(40, res)
     return int(hp), int(atk), int(res)
     
 
