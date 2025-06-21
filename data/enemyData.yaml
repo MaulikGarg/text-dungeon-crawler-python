@@ -7,3 +7,64 @@ enemyOdds:
   common: 65 
   rare: 30
   elite: 5
+
+enemyNames:
+  common:
+    - Rabid Hound
+    - Bandit
+    - Drifter
+    - Hollow Scout
+    - Feral Grunt
+    - Ashwalker
+    - Cracked Puppet
+    - Bone Gnawer
+    - Swamp Leech
+    - Cave Lurker
+    - Rusted Sentry
+    - Tunnel Rat
+    - Gutterspawn
+    - Muckling
+    - Scavenger
+    - Fleshrat
+    - Mangled Thief
+    - Ruin Crawler
+    - Grime Stalker
+    - Forgotten Pickpocket
+    - Barren Wretch
+    - Ember Sneak
+    - Stone Eater
+    - Weakblood
+
+  rare:
+    - Dread Pilgrim
+    - Sunken Warden
+    - Blight Revenant
+    - Steeljaw Butcher
+    - Veilcaster
+    - Carrion Seer
+    - Crimson Shade
+    - Emberbound
+    - Soul Taker
+    - Withered Fang
+    - Grave Wailer
+    - Rotbelly
+    - Lanternless Guide
+    - Duskwatch Shaman
+    - Black-Bone Raider
+
+  elite:
+    - The Hollow Monarch
+    - Bloodbane
+    - Varkuun the Devourer
+    - Seraph of Rot
+    - The Eternal Ghoul
+    - Xirath, Warden of Dust
+    - Maelgrim the Shackled
+    - Duskforged Sentinel
+    - Mother of Echoes
+    - The Pale Herald
+    - Vorath the Blighted
+    - The Crimson Lich
+    - Grasp of the Forgotten
+    - Shade-Sworn Tyrant
+    - Bane of Ashreach

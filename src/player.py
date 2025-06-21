@@ -1,5 +1,6 @@
 # This file contains the core classes for the player
 
+import random
 from pathlib import Path
 import yaml
 
@@ -127,3 +128,13 @@ class Player:
         raise ValueError(f"in increaseStats() got value {toUpgrade}.")
            
     
+  def useHealth(self):
+    if(self.inventory["Health"] < 1):
+      raise ValueError(f"cannot call useHealth() when current available are {self.inventory["Health"]}")
+
+    self.inventory["Health"] -= 1
+    self.currentHP = self.maxHP
+    if(random.randint(1, 100) <= self.luck):
+      self.currentHP += self.maxHP * 0.25
+    print(f"Health item use success. Health: {self.currentHP}/{self.maxHP}")
+ 

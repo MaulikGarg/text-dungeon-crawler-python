@@ -15,12 +15,12 @@ class Enemy:
 
   def __init__(self):
     self.name = "enemy" # name to be picked
-    self.type = None # common, rare, elite, boss
+    self.type = None # common, rare, elite, boss, 1 through 4
     self.level = None
-    self.sight = None # the higher this is, the less odds to sneak escape
-    self.atk = None
-    self.currHP = None
-    self.hp = None
+    self.sight = 0 # the higher this is, the less odds to sneak escape
+    self.atk = 0
+    self.currHP = 0
+    self.hp = 0
     self.res = None # resistance to crit hits, opposite for luck in Players
 
 
@@ -41,8 +41,10 @@ class Enemy:
         self.type = 'elite'
 
   def generate(self, player: Player):
-    
+
     if self.type is None: self.generateType()
+
+    self.name = random.choice(data["enemyNames"][self.type])
 
     enemyStatPoints = (player.level+3) * data["multipliers"][self.type]
     
@@ -86,7 +88,7 @@ class Enemy:
     
 
   def printEnemy(self):
-    print(f"{self.name} - {self.level} - {self.type}")
+    print(f'"{self.name}" - Lv.{self.level} - {self.type}')
     print("---------")
     print(f"HP: {self.currHP}/{self.hp}")
     print(f"ATK: {self.atk}")
