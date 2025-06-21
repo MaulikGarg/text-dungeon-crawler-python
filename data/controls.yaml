@@ -1,0 +1,8 @@
+# controls for the game
+
+roomKey: 'W'
+attackKey: 'A'
+healthKey: '1'
+moonShadeKey: '2'
+vanishPearlKey: '3'
+

@@ -3,18 +3,26 @@
 import rooms
 from player import Player
 from enemy import Enemy
+from pathlib import Path
+import yaml
 
-print("Welcome to the game. default player level for testing is 30 ")
+print("Welcome to the game. ")
 
-pl = Player()
-pl.level = 30
-en = Enemy()
+projectdir = Path(__file__).resolve().parent.parent
+controlFilePath = projectdir / "data" / "controls.yaml"
 
-while True:
-    resp = int(input("1 to level up, 2 to spawn enemy. "))
-    if resp == 1:
-        pl.level+=1
-    else:    
-        en.type = None
-        en.generate(pl)
-        en.printEnemy()
+with open(controlFilePath, 'r') as controlFile:
+    controls = yaml.safe_load(controlFile)
+
+roomKey = controls["roomKey"]
+attackKey = controls["attackKey"]
+healthKey = controls["healthKey"]
+moonShadeKey = controls["moonShadeKey"]
+vanishPearlKey = controls["vanishPearlKey"]
+
+print("Controls\n---------")
+print(f"Move to the next room: {roomKey}")
+print(f"Attack: {attackKey}")
+print(f"Use Health: {healthKey}")
+print(f"Use Moon Shade: {moonShadeKey}")
+print(f"Use Vanish Pearl: {vanishPearlKey}")
