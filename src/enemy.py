@@ -19,9 +19,9 @@ class Enemy:
     self.level = None
     self.sight = 0 # the higher this is, the less odds to sneak escape
     self.atk = 0
-    self.currHP = 0
-    self.hp = 0
-    self.res = None # resistance to crit hits, opposite for luck in Players
+    self.currentHP = 0
+    self.maxHP = 0
+    self.res = 0 # resistance to crit hits, opposite for luck in Players
 
 
   def generateType(self):
@@ -55,15 +55,16 @@ class Enemy:
 
     self.level = int(enemyStatPoints)  
     hp_boost, atk_boost, res_boost = self.generateStats(enemyStatPoints)
-    self.hp = 2 + hp_boost
+    self.maxHP = 2 + hp_boost
     self.atk = 1 + atk_boost
     self.res = 1 + res_boost
 
-    self.currHP = self.hp
+    self.currentHP = self.maxHP
 
     base = 2 + player.level*0.5
     jitter = random.uniform(-3, 5)
     self.sight = min(100, max(5, int(base + jitter)))
+
 
   def generateStats(self, enemyStatPoints):  
 
@@ -90,7 +91,7 @@ class Enemy:
   def printEnemy(self):
     print(f'"{self.name}" - Lv.{self.level} - {self.type}')
     print("---------")
-    print(f"HP: {self.currHP}/{self.hp}")
+    print(f"HP: {self.currentHP}/{self.maxHP}")
     print(f"ATK: {self.atk}")
     print(f"RES: {self.res}%")
     print(f"SIGHT: {self.sight}%")

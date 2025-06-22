@@ -3,6 +3,7 @@
 import random
 from pathlib import Path
 import yaml
+from enum import Enum, auto
 
 projectdir = Path(__file__).resolve().parent.parent
 
@@ -10,6 +11,11 @@ projectdir = Path(__file__).resolve().parent.parent
 upgradePath = projectdir / "data" / "upgrades.yaml" 
 with open(upgradePath, "r") as upgradeFile:
   tierUpgrades = yaml.safe_load(upgradeFile)["tiers"]
+
+class InvItem(Enum):
+  HEALTH = auto()
+  VANISH_PEARL = auto()
+  MOON_SHADE_ELIXIR = auto()
 
 class Player:
 
@@ -21,7 +27,7 @@ class Player:
     self.currentHP = self.maxHP
     self.atk = 3
     self.luck = 0 # unlocks at player level 5
-    self.inventory = {"Health": 1, "Vanish": 1, "Elixir": 1}
+    self.inventory = {InvItem.HEALTH: 1, InvItem.VANISH_PEARL: 1, InvItem.MOON_SHADE_ELIXIR: 1}
     self.possibleUpgrades = {"hp": 3, "atk": 3, "luck": 0} # the remaining possible upgrades in current level space
     self.statOrder = ["hp", "atk", "luck"]
     self.unlockedLuck = False
@@ -129,12 +135,12 @@ class Player:
            
     
   def useHealth(self):
-    if(self.inventory["Health"] < 1):
-      raise ValueError(f"cannot call useHealth() when current available are {self.inventory["Health"]}")
+    if(self.inventory[InvItem.HEALTH] < 1):
+      raise ValueError(f"cannot call useHealth() when current available are {self.inventory[InvItem.HEALTH]}")
 
-    self.inventory["Health"] -= 1
+    self.inventory[InvItem.HEALTH] -= 1
     self.currentHP = self.maxHP
     if(random.randint(1, 100) <= self.luck):
       self.currentHP += self.maxHP * 0.25
-    print(f"Health item use success. Health: {self.currentHP}/{self.maxHP}")
+    print(f"Health item use success. Health: {self.currentHP}/{self.maxHP}. Remaining: {self.inventory[InvItem.HEALTH]}")
  
