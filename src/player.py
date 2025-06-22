@@ -23,11 +23,12 @@ class Player:
   def __init__(self):
     self.level = 1
     self.exp = 0
+    self.nextLevelEXP = 11
     self.maxHP = 10
     self.currentHP = self.maxHP
     self.atk = 3
     self.luck = 0 # unlocks at player level 5
-    self.inventory = {InvItem.HEALTH: 1, InvItem.VANISH_PEARL: 1, InvItem.MOON_SHADE_ELIXIR: 1}
+    self.inventory = {InvItem.HEALTH: 0, InvItem.VANISH_PEARL: 0, InvItem.MOON_SHADE_ELIXIR: 0}
     self.possibleUpgrades = {"hp": 3, "atk": 3, "luck": 0} # the remaining possible upgrades in current level space
     self.statOrder = ["hp", "atk", "luck"]
     self.unlockedLuck = False
@@ -63,19 +64,22 @@ class Player:
     if self.level in (6, 26, 51, 56):    
        self.possibleUpgrades = tierUpgrades[self.playerTier]["limits"].copy()
 
-    self.currentHP = self.maxHP
     self.exp = 0
     self.increaseStats()
+    self.currentHP = self.maxHP
+    self.nextLevelEXP = self.getExpRequired()
 
 
 
   def printStatus(self):  
-    print("Current Player Status\n--------")
-    print(f"Level: {self.level}")
+    print("Current Player Status")
+    print('-' * 10)
+    print(f"Level: {self.level}, {self.exp}/{self.nextLevelEXP}")
     print(f"HP: {self.currentHP} / {self.maxHP}")
     print(f"ATK: {self.atk}")
     if(self.unlockedLuck):
       print(f"LUCK: {self.luck}%")
+    print('-' * 10)  
 
 
 
@@ -85,7 +89,7 @@ class Player:
     possibleChoices = []
 
     if self.possibleUpgrades["hp"]:
-      print(f"1. Health: {self.possibleUpgrades['hp']} remaining, {self.currentHP} -> {self.maxHP+HPamount}")
+      print(f"1. Health: {self.possibleUpgrades['hp']} remaining, {self.maxHP} -> {self.maxHP+HPamount}")
       possibleChoices.append(1)
 
     if self.possibleUpgrades["atk"]:  
@@ -143,4 +147,6 @@ class Player:
     if(random.randint(1, 100) <= self.luck):
       self.currentHP += self.maxHP * 0.25
     print(f"Health item use success. Health: {self.currentHP}/{self.maxHP}. Remaining: {self.inventory[InvItem.HEALTH]}")
- 
+  
+  def getExpRequired(self) -> int:
+    return int(10 + (self.level ** 1.5))

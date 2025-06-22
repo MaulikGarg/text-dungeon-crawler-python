@@ -8,6 +8,13 @@ enemyOdds:
   rare: 30
   elite: 5
 
+typeMultiplier:
+    common : 1.2
+    rare : 1.8
+    elite : 2.5
+    boss : 4.5  
+
+
 enemyNames:
   common:
     - Rabid Hound

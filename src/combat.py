@@ -8,6 +8,9 @@ from player import Player
 from player import InvItem
 import random
 
+import rooms
+
+
 
 projectdir = Path(__file__).resolve().parent.parent
 controlFilePath = projectdir / "data" / "controls.yaml"
@@ -15,31 +18,56 @@ controlFilePath = projectdir / "data" / "controls.yaml"
 with open(controlFilePath, 'r') as controlFile:
     controls = yaml.safe_load(controlFile)
 
-roomKey = controls["roomKey"]
-attackKey = controls["attackKey"]
-healthKey = controls["healthKey"]
-moonShadeKey = controls["moonShadeKey"]
-vanishPearlKey = controls["vanishPearlKey"]
-
+controlMap = {
+    "roomKey": controls["roomKey"],
+    "attackKey": controls["attackKey"],
+    "healthKey": controls["healthKey"],
+    "moonShadeKey": controls["moonShadeKey"],
+    "vanishPearlKey": controls["vanishPearlKey"]
+}
 
 # covers an entire combat sequence until the enemy's drops are picked.
 # or the player evades combat successfully.
-def fight(player: Player, enemy: Enemy) -> str:
+def fight(player: Player, enemy: Enemy, roomLight, roomSize) -> str:
   
+  # light and size range: [0,4]
+  roomBalance = roomLight - roomSize  # ranges from -4 to +4
+
+  scalingFactor = roomBalance * 0.15  # -0.6 to +0.6
+
+  # Preview adjustment before applying
+  atkBefore = enemy.atk
+  sightBefore = enemy.sight
+
+  enemy.atk = max(1, int(enemy.atk * (1 + scalingFactor)))
+  sightModifier = scalingFactor * 0.5  # Half the impact of attack scaling
+  enemy.sight = max(10, min(90, int(enemy.sight * (1 + sightModifier))))
+
+  print(f"Under this room, {enemy.name}'s stats are affected:")
+  print(f"ATK: {atkBefore} → {enemy.atk}")
+  print(f"SIGHT: {sightBefore}% → {enemy.sight}%")
+
+
   moonShadeAtk = 0
 
   while True:
+
+    print('\n')
+    player.printStatus()
+    print('\n')
+    enemy.printEnemy()
+    print('\n')
     # first we get the player's choice and let them use their turn.
     choice = getPlayerChoice(player)
-    if choice == attackKey:
+    if choice == controlMap["attackKey"]:
         playerAttack(player, enemy, moonShadeAtk)
         if not enemy.currentHP: return "victory"
-    elif choice == healthKey:
+    elif choice == controlMap["healthKey"]:
         player.useHealth()
-    elif choice == moonShadeKey:    
+    elif choice == controlMap["moonShadeKey"]:    
         moonShadeAtk += useMoonShade(player)
         print(f"Moon Shade Elixir used! Boosted ATK this turn: {moonShadeAtk}")
-    elif choice == vanishPearlKey:
+    elif choice == controlMap["vanishPearlKey"]:
         if useVanish(player, enemy): return "escape"
     else:
       raise KeyError(f"Cannot match input key {choice} for any action in fight()")
@@ -54,22 +82,22 @@ def fight(player: Player, enemy: Enemy) -> str:
 
 def getPlayerChoice(player: Player):
 
-  possibleActions = [attackKey]
+  possibleActions = [controlMap["attackKey"]]
 
   print("Available Actions:")
-  print(f"Attack ({attackKey})")
+  print(f"Attack ({controlMap['attackKey']})")
 
   if(player.inventory[InvItem.HEALTH]):
-    print(f"Use Health Boost ({healthKey})")
-    possibleActions.append(healthKey)
+    print(f"Use Health Boost ({controlMap['healthKey']})")
+    possibleActions.append(controlMap["healthKey"])
 
   if(player.inventory[InvItem.MOON_SHADE_ELIXIR]):  
-    print(f"Use Moon Shade Elixir ({moonShadeKey})")
-    possibleActions.append(moonShadeKey)
+    print(f"Use Moon Shade Elixir ({controlMap['moonShadeKey']})")
+    possibleActions.append(controlMap["moonShadeKey"])
 
   if(player.inventory[InvItem.VANISH_PEARL]): 
-    print(f"Use Vanish Pearl ({vanishPearlKey})")
-    possibleActions.append(vanishPearlKey)
+    print(f"Use Vanish Pearl ({controlMap['vanishPearlKey']})")
+    possibleActions.append(controlMap["vanishPearlKey"])
 
 
   while True:  
@@ -87,7 +115,6 @@ def playerAttack(player: Player, enemy: Enemy, moonShadeAtk):
   DMG = player.atk + moonShadeAtk
 
   critChance = player.luck - enemy.res
-  hasCrit = False
   if(random.randint(1, 100) <= critChance):
     print("Your attack crits!")
     DMG *= 1.3
@@ -121,7 +148,7 @@ def useMoonShade(player: Player) -> int:
   player.inventory[InvItem.MOON_SHADE_ELIXIR] -= 1    
   print(f"Remaining Moon Shade Elixir: {player.inventory[InvItem.MOON_SHADE_ELIXIR]}")
 
-  boostedAtk = max(3,player.atk * 0.25)
+  boostedAtk = max(3,player.atk * 0.5)
   if(random.randint(1,100) < player.luck):
     boostedAtk *= 1.3 
 
