@@ -8,12 +8,46 @@ enemyOdds:
   rare: 30
   elite: 5
 
-typeMultiplier:
-    common : 1.2
-    rare : 1.8
-    elite : 2.5
-    boss : 4.5  
+# The Number of enemies the player needs to kill to level
+typeDivider:
+  common : 3.2
+  rare : 2.3
+  elite : 1.5
+  boss : 1 # Killing a boss should always result in level up. 
 
+enemyTiersMultiplier:
+  1: 1.0
+  2: 1.5
+  3: 2.5
+  4: 3.5
+  5: 4.5
+
+enemyBaseStats:  
+  1:
+    hp: 3
+    atk: 2
+    res: 2
+    sight: 5
+  2:
+    hp: 5
+    atk: 3
+    res: 3
+    sight: 8
+  3:
+    hp: 7
+    atk: 4
+    res: 4
+    sight: 11
+  4:
+    hp: 9
+    atk: 5
+    res: 5
+    sight: 14
+  5:
+    hp: 11
+    atk: 6
+    res: 6
+    sight: 17
 
 enemyNames:
   common:

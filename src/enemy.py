@@ -26,6 +26,8 @@ class Enemy:
     self.deathEXP = 0 # exp to be dropped on death
 
 
+
+
   def generateType(self, player: Player):
     
     commonOdds = int(data["enemyOdds"]["common"])
@@ -49,6 +51,9 @@ class Enemy:
     else:
         self.type = 'elite'
 
+
+
+
   def generate(self, player: Player):
 
     if self.type is None: self.generateType(player)
@@ -59,35 +64,39 @@ class Enemy:
     levelVariance = random.randint(-1, 2)
     self.level = max(1, player.level + levelVariance)
 
-    enemyStatPoints = self.level * data["multipliers"][self.type]
+    enemyStatPoints = self.level * data["multipliers"][self.type] * data['enemyTiersMultiplier'][player.playerTier]
     
     # if the player is lucky, deduct 10% enemyStatePoints
-    isLucky = True if random.randint(1,100) <= player.luck else False
-    if(isLucky):
-      enemyStatPoints -= enemyStatPoints*0.05
+    lucky = True if random.randint(1,100) <= player.luck else False
+    if lucky: enemyStatPoints -= enemyStatPoints*0.2
 
     hp_boost, atk_boost, res_boost = self.generateStats(enemyStatPoints)
-    self.maxHP = 4 + hp_boost
-    self.atk = 2 + atk_boost
-    self.res = res_boost
+
+    baseStats = data['enemyBaseStats'][player.playerTier]
+    self.maxHP = baseStats['hp'] + hp_boost
+    self.atk = baseStats['atk'] + atk_boost
+    self.res = baseStats['res'] + res_boost
+
+    baseSight = baseStats['sight'] + player.level*0.75
+    jitter = random.uniform(-5, 10)
+    self.sight = min(90, max(10, int(baseSight + jitter)))
+    self.deathEXP = self.calcDeathExp(player)
 
     self.currentHP = self.maxHP
 
-    base = 5 + player.level*0.75
-    jitter = random.uniform(-5, 10)
-    self.sight = min(90, max(10, int(base + jitter)))
-    self.deathEXP = self.calcDeathExp(player.luck)
+
+
 
 
   def generateStats(self, enemyStatPoints):  
 
     # first the enemies get a bare minimum to ensure flow
     # This spends 55% of the available points
-    hp = max(3, enemyStatPoints * 0.25)
-    atk = max(1, enemyStatPoints * 0.30)
-    res = max(0, enemyStatPoints * 0.10)
+    hp = enemyStatPoints * 0.5
+    atk = enemyStatPoints * 0.3
+    res = enemyStatPoints * 0.2
 
-    randomlyAllocatedPoints = enemyStatPoints - (hp+atk+res)
+    randomlyAllocatedPoints = enemyStatPoints
 
     w1, w2, w3 = random.random(), random.random(), random.random()
     total = w1 + w2 + w3
@@ -111,8 +120,8 @@ class Enemy:
     print('-' * 10)
 
 
-  def calcDeathExp(self, luck: int) -> int:
-    baseEXP = max(8,int(self.level * 0.8 * data["typeMultiplier"][self.type]))
-    if(luck >= random.randint(1,100)):
+  def calcDeathExp(self, player: Player) -> int:
+    baseEXP = player.nextLevelEXP / data['typeDivider'][self.type]
+    if(player.luck >= random.randint(1,100)):
       baseEXP *= 1.2
     return int(baseEXP)  
